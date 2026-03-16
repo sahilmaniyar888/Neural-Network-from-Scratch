@@ -1,5 +1,6 @@
 # Virtual environments
 .venv/
+.venv*/
 venv/
 
 # Python cache
@@ -10,6 +11,7 @@ __pycache__/
 
 # Jupyter
 .ipynb_checkpoints/
+helper_functions.py
 
 # Build artifacts
 build/
