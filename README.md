@@ -1,82 +1,33 @@
 # Neural Network from Scratch
 
-Notebook-first PyTorch exercises for learning how tensors, data loaders, training loops, and transfer learning fit together from first principles.
+A notebook-first PyTorch learning repo that moves from tensor basics and manual training loops to data pipelines, computer vision, transfer learning, and SFT batching concepts.
 
-The repo is organized as a guided learning path, so the folder order matches the order you should study the material.
+## Project goals
 
-## Repo layout
+- learn core PyTorch operations from first principles,
+- understand how `nn.Module`, loss functions, and optimizers fit together,
+- practice real data loading workflows,
+- build at least one end-to-end vision model,
+- and connect the basics to more advanced topics such as transfer learning and supervised fine-tuning.
 
-- `notebooks/01_fundamentals/`: first-principles tensor and training-loop work.
-- `notebooks/02_data_loading/`: dataset, image loading, and dataloader practice.
-- `notebooks/03_computer_vision/`: transfer learning and higher-level PyTorch workflows.
-- `src/neural_network_from_scratch/`: lightweight package and CLI entry point.
-
-## Learning order
-
-1. `notebooks/01_fundamentals/nn_end_to_end.ipynb`
-2. `notebooks/02_data_loading/data_loaders.ipynb`
-3. `notebooks/02_data_loading/dataloader_pytorch.ipynb`
-4. `notebooks/03_computer_vision/transfer_learning.ipynb`
-
-## Recommended setup
-
-This repo is best used with Python 3.12 on a local CPU environment.
-
-Why:
-
-- `nn_end_to_end.ipynb` is small and runs comfortably on CPU.
-- CPU keeps the setup simple while you are learning the training loop.
-- Colab is still a good fallback for heavier image notebooks or if local installs get annoying.
-
-## Local install
-
-Windows PowerShell with `uv`:
-
-```powershell
-uv venv .venv312 --python 3.12
-.\.venv312\Scripts\activate
-uv pip install -e ".[dev]"
-python -m ipykernel install --user --name neural-network-from-scratch --display-name "Neural Network from Scratch (3.12)"
-```
-
-Then open the notebooks in VS Code or Jupyter and select the `Neural Network from Scratch (3.12)` kernel.
-
-## If you prefer Google Colab
-
-Use Colab when:
-
-- you want a zero-setup environment,
-- you want an easy GPU option later,
-- or you are working on `notebooks/03_computer_vision/transfer_learning.ipynb`.
-
-Minimal Colab install cell:
-
-```python
-!pip install torch torchvision matplotlib numpy pillow requests tqdm
-```
-
-For `notebooks/01_fundamentals/nn_end_to_end.ipynb`, local CPU is still the cleaner choice.
-
-## Notes
-
-- The repo is still notebook-first, but the top-level layout is now cleaner and more standard.
-- `notebooks/02_data_loading/dataloader_pytorch.ipynb` downloads `helper_functions.py` on demand if it is missing.
-- If you want CUDA/GPU support locally, install PyTorch using the official selector first, then install the rest of the repo dependencies.
-
-## Project structure
+## Repository structure
 
 ```text
 .
 |-- notebooks/
 |   |-- README.md
 |   |-- 01_fundamentals/
-|   |   `-- nn_end_to_end.ipynb
+|   |   |-- README.md
+|   |   |-- 01_pytorch_basics_and_training_loop.ipynb
+|   |   `-- 02_sft_batch_preparation.ipynb
 |   |-- 02_data_loading/
-|   |   |-- data_loaders.ipynb
-|   |   `-- dataloader_pytorch.ipynb
+|   |   |-- README.md
+|   |   |-- 01_dataset_preparation_and_loading.ipynb
+|   |   `-- 02_pytorch_dataloader_workflow.ipynb
 |   `-- 03_computer_vision/
 |       |-- README.md
-|       `-- transfer_learning.ipynb
+|       |-- 01_mnist_cnn_end_to_end.ipynb
+|       `-- 02_transfer_learning_with_alexnet.ipynb
 |-- src/
 |   `-- neural_network_from_scratch/
 |       |-- __init__.py
@@ -85,8 +36,39 @@ For `notebooks/01_fundamentals/nn_end_to_end.ipynb`, local CPU is still the clea
 `-- README.md
 ```
 
+## Learning path
+
+1. `notebooks/01_fundamentals/01_pytorch_basics_and_training_loop.ipynb`
+2. `notebooks/01_fundamentals/02_sft_batch_preparation.ipynb`
+3. `notebooks/02_data_loading/01_dataset_preparation_and_loading.ipynb`
+4. `notebooks/02_data_loading/02_pytorch_dataloader_workflow.ipynb`
+5. `notebooks/03_computer_vision/01_mnist_cnn_end_to_end.ipynb`
+6. `notebooks/03_computer_vision/02_transfer_learning_with_alexnet.ipynb`
+
+## Setup
+
+Recommended local setup on Windows with Python 3.12:
+
+```powershell
+uv venv .venv312 --python 3.12
+.\.venv312\Scripts\activate
+uv pip install -e ".[dev]"
+python -m ipykernel install --user --name nn-scratch-312 --display-name "Neural Network Scratch (3.12)"
+```
+
+Then open the notebooks and select the `Neural Network Scratch (3.12)` kernel.
+
+## Notes
+
+- The project is designed to run well on CPU for most notebooks.
+- `notebooks/02_data_loading/02_pytorch_dataloader_workflow.ipynb` downloads `helper_functions.py` on demand if it is missing.
+- `notebooks/03_computer_vision/01_mnist_cnn_end_to_end.ipynb` is the best computer-vision starting point if you want a fast local run.
+- `notebooks/03_computer_vision/02_transfer_learning_with_alexnet.ipynb` is more resource-heavy and is a good Colab candidate.
+
 ## Quick start
 
-1. Start with `notebooks/01_fundamentals/nn_end_to_end.ipynb`.
-2. Move to `notebooks/02_data_loading/` once the tensor and training-loop pieces feel comfortable.
-3. Use `notebooks/03_computer_vision/transfer_learning.ipynb` when you want a more practical computer-vision example.
+If you want the fastest route through the project, start with:
+
+1. `notebooks/01_fundamentals/01_pytorch_basics_and_training_loop.ipynb`
+2. `notebooks/03_computer_vision/01_mnist_cnn_end_to_end.ipynb`
+3. `notebooks/03_computer_vision/02_transfer_learning_with_alexnet.ipynb`

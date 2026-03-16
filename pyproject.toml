@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "neural-network-from-scratch"
 version = "0.1.0"
-description = "Educational PyTorch notebooks for learning tensors, data loaders, neural networks, and transfer learning from scratch."
+description = "Notebook-first PyTorch learning project covering fundamentals, data loading, computer vision, transfer learning, and SFT batching."
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
